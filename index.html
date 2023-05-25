@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Корзина</title>
+    <link rel="stylesheet" type="text/css" href="normalize.css" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <h1 class="text-center">КОРЗИНА</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-10 offset-1">
+          <table class="table" id="basket">
+            <thead>
+              <tr>
+                <th>название</th>
+                <th class="text-end">стоимость</th>
+                <th>количество</th>
+                <th class="text-end">итог</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="basket__item">
+                <td class="align-middle">товар 1</td>
+                <td class="align-middle price text-end">1 000 руб.</td>
+                <td class="align-middle count">
+                  <div class="input-group">
+                    <button type="button" class="btn btn-primary btn-minus">-</button>
+                    <input
+                      type="number"
+                      value="2"
+                      data-price="1000"
+                      class="form-control input"
+                      disabled
+                    />
+                    <button type="button" class="btn btn-primary btn-plus">+</button>
+                  </div>
+                </td>
+                <td class="align-middle text-end subtotal sl-discount sl-discount__full-price">
+                  2 000 руб.
+                </td>
+              </tr>
+              <tr class="basket__item">
+                <td class="align-middle">товар 2</td>
+                <td class="align-middle price text-end">2 000 руб.</td>
+                <td class="align-middle count">
+                  <div class="input-group">
+                    <button type="button" class="btn btn-primary btn-minus">-</button>
+                    <input
+                      type="number"
+                      value="5"
+                      data-price="2000"
+                      class="form-control input"
+                      disabled
+                    />
+                    <button type="button" class="btn btn-primary btn-plus">+</button>
+                  </div>
+                </td>
+                <td class="align-middle text-end subtotal sl-discount sl-discount__full-price">
+                  10 000 руб.
+                </td>
+              </tr>
+              <tr class="basket__item">
+                <td class="align-middle">товар 3</td>
+                <td class="align-middle price text-end">4 000 руб.</td>
+                <td class="align-middle count">
+                  <div class="input-group">
+                    <button type="button" class="btn btn-primary btn-minus">-</button>
+                    <input
+                      type="number"
+                      value="1"
+                      data-price="4000"
+                      class="form-control input"
+                      disabled
+                    />
+                    <button type="button" class="btn btn-primary btn-plus">+</button>
+                  </div>
+                </td>
+                <td class="align-middle text-end subtotal sl-discount sl-discount__full-price">
+                  4 000 руб.
+                </td>
+              </tr>
+              <tr class="basket__item">
+                <td class="align-middle">товар 4</td>
+                <td class="align-middle price text-end">1 500 руб.</td>
+                <td class="align-middle count">
+                  <div class="input-group">
+                    <button type="button" class="btn btn-primary btn-minus">-</button>
+                    <input
+                      type="number"
+                      value="2"
+                      data-price="1500"
+                      class="form-control input"
+                      disabled
+                    />
+                    <button type="button" class="btn btn-primary btn-plus">+</button>
+                  </div>
+                </td>
+                <td class="align-middle text-end subtotal sl-discount sl-discount__full-price">
+                  3 000 руб.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="total-price fw-bold text-end pr-2">
+            Итого: <span class="sl-discount sl-discount__full-price" id="total-price"></span> руб.
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<button id="btnDiscount" type="button" class="btn btn-primary btn">Что я учу?</button>-->
+    <div class="sl-discount sl-discount__wrapper text-center">
+      <div class="sl-discount__inner">
+        <form class="sl-discount__form" autocomplete="off">
+          <p class="sl-discount__title">Введите промокод и получите скидку</p>
+          <input
+            class="sl-discount__input"
+            type="text"
+            name="promocode"
+            placeholder="Ваш промокод"
+          /><button class="sl-discount__button" type="button">Ввести</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="bootstrap.min.css"></script>
+    <!--<script src="bootstrap.bundle.min.js"></script>-->
+    <script src="cartjs.js"></script>
+  </body>
+</html>
