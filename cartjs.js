@@ -56,28 +56,29 @@ document.getElementById('basket').addEventListener('click', (event) => {
 
 init()
 
-const btnDiscount = document.querySelectorAll('.sl-discount')
-//const btnDiscount = document.querySelectorAll('.sl-discount__button')
+const btnDiscount = document.querySelector('.sl-discount__button')
 
 btnDiscount.addEventListener('click', function () {
-  //console.log('btnDiscount')
+  // итоговая сумма всех товаров
+  let resultSum = 0
+  //получаем все элементами с ценой, кроме итоговой
+  const prices = [...document.querySelectorAll('.subtotal')]
+
+  prices.forEach((item) => {
+    const priceArr = item.textContent.trim().split(' ') // разбиваем строку на массив
+    const price = parseInt(item.textContent.replace(/\D/g, '')) // цена
+    const currency = priceArr[priceArr.length - 1] // валюта
+
+    // расчитаем сумму с учетом промокода
+    const priceWithDiscount = setDiscount(price)
+
+    // перезапишем новое значение цены
+    item.textContent = `${priceWithDiscount} ${currency}`
+
+    //складываем все суммы в итоговую
+    resultSum += priceWithDiscount
+  })
+
+  // записываем итоговую сумму в соответствующий элемент
+  document.getElementById('total-price').textContent = resultSum
 })
-
-// функция принимает два аргумента текущую цену и размер скидки
-function setDiscount(price, discount = 20) {
-  // вычисляем сумму скидки
-  const discountAmount = (price * discount) / 100
-  // из текущей цены вычитаем сумму скидки
-  return price - discountAmount
-}
-
-//btnDiscount.onclick = function () {
-//console.log('20')
-
-function applyDiscount(price) {
-  const discount = price * 0.2
-  const discountedPrice = price - discount
-  return discountedPrice
-}
-
-//const btnDiscount = document.querySelectorAll('.sl-discount__button')
