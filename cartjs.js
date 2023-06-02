@@ -82,3 +82,9 @@ btnDiscount.addEventListener('click', function () {
   // записываем итоговую сумму в соответствующий элемент
   document.getElementById('total-price').textContent = resultSum
 })
+function setDiscount(price, discount = 20) {
+  // вычисляем сумму скидки
+  const discountAmount = (price * discount) / 100
+  // из текущей цены вычитаем сумму скидки
+  return price - discountAmount
+}
